@@ -1,13 +1,25 @@
-
 ## KUNGFUAI Backend Interview
 
-Using the NodeJS application framework NestJS, create a TODO list application that persists the TODOs to a database. 
+Using the NodeJS application framework NestJS, create a TODO list application that persists the TODOs to a database.
 
 Features:
+
 - Create a TODO
 - Edit an existing TODO
 - Delete an existing TODO
 - See all of the todos
+
+### Server Address
+
+- http://100.25.157.4:3000
+
+### Endpoints
+
+- /tasks, Get -- list all tasks
+- /tasks/:id, Get -- get on task
+- /tasks, Post -- create/add a task
+- /tasks/:id, Patch -- update/edit a task
+- /tasks/:id, Delete -- delete/remove a task
 
 Use any of the Cloud Providers listed below to deploy your solution
 
@@ -15,21 +27,14 @@ Use any of the Cloud Providers listed below to deploy your solution
 - GCP
 - Azure
 
-The goal of this interview is for you to show off your skills, habits, and sensibilities as the amazing engineer you are.
+### Deployed On AWS EC2
 
-It does not need to be complicated, clever, or expensive. Just show us your logical flows, and we'll discuss your code and
-architecture during the rest of the interview.
-
-## Submission Steps
-1. Fork the repo
-2. Perform work on your own repo through said fork.
-3. When the code is ready, and the cloud infrastructure is up, then send your public fork link to Ryman!
-
-Thank you, and good luck!
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- API and dockerized Posgres DB are hosted on same EC2
+- SG for the EC2 instance Inbound Rules looks as follows
+  - Port 5432 open for only the instance's SG
+  - Port 22 to allow connection coming only from my home IP
+  - Port 3000 open to world (It's not good idea to open your applications port to world, reverse proxy will be much secure)
+  - Port 80 open to the world (was planning to implement NestJs to listen on port 80 instead of 3000)
 
 ## Installation
 
@@ -75,4 +80,4 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 ## License
 
-  Nest is [MIT licensed](LICENSE).
+Nest is [MIT licensed](LICENSE).
